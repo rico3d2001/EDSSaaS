@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  apigatewayeds:
+    image: ${DOCKER_REGISTRY-}apigatewayeds
+    build:
+      context: .
+      dockerfile: APIGatewayEDS/Dockerfile
+
+  webapiorganizacao:
+    image: ${DOCKER_REGISTRY-}webapiorganizacao
+    build:
+      context: .
+      dockerfile: WebApiOrganizacao/Dockerfile
+
+
+  apicontratos:
+    image: ${DOCKER_REGISTRY-}apicontratos
+    build:
+      context: .
+      dockerfile: APIContratos/Dockerfile
+
+
+  webapicontas:
+    image: ${DOCKER_REGISTRY-}webapicontas
+    build:
+      context: .
+      dockerfile: WebApiContas/Dockerfile
+

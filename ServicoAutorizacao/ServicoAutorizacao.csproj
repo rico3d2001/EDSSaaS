@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Identity.MongoDbCore" Version="3.1.2" />
+    <PackageReference Include="FluentValidation" Version="11.6.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="MediatR" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="MongoDbGenericRepository" Version="1.4.8" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.21.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EDSCore\EDSCore.csproj" />
+    <ProjectReference Include="..\HubDTOs\HubDTOs.csproj" />
+    <ProjectReference Include="..\Hubs.Dominio\Hubs.Dominio.csproj" />
+    <ProjectReference Include="..\RepoGenerico\RepoGenerico.csproj" />
+    <ProjectReference Include="..\Repositorios\RepoHubs.csproj" />
+    <ProjectReference Include="..\ServicosEmailHub\ServicosEmailHub.csproj" />
+  </ItemGroup>
+
+</Project>
