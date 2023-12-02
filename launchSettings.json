@@ -7,7 +7,9 @@
         "apigatewayeds": "StartDebugging",
         "webapiorganizacao": "StartDebugging",
         "apicontratos": "StartDebugging",
-        "webapicontas": "StartDebugging"
+        "webapicontas": "StartDebugging",
+        "blazorappeds": "StartDebugging",
+        "blazorportal": "StartDebugging"
       }
     }
   }

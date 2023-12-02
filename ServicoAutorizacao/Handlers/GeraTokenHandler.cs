@@ -50,19 +50,23 @@ namespace ServiceCustomer.Handlers
             var erros = new List<ValidationFalha>();
             ApplicationUser user = await _userManager.FindByEmailAsync(request.Email);
 
-            if (!user.EmailConfirmed)
-            {
-                var emailtokenativo = user.Claims.FirstOrDefault(x => x.Type == "emailtokenativo" && x.Value == request.NumeroEmail);
-                if (emailtokenativo == null)
-                {
-                    erros.Add(new ValidationFalha("emailtokenativo", "O número digitado não corresponde ao do email enviado."));
-                    return new ValidationFalhas(erros.ToArray());
-                }
+            //if (!user.EmailConfirmed)
+            //{
+            //    var emailtokenativo = user.Claims.FirstOrDefault(x => x.Type == "emailtokenativo" && x.Value == request.NumeroEmail);
+            //    if (emailtokenativo == null)
+            //    {
+            //        erros.Add(new ValidationFalha("emailtokenativo", "O número digitado não corresponde ao do email enviado."));
+            //        return new ValidationFalhas(erros.ToArray());
+            //    }
 
-                user.EmailConfirmed = true;
-                _userManager.UpdateAsync(user);
+            //    user.EmailConfirmed = true;
+            //    _userManager.UpdateAsync(user);
 
-            }
+            //}
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var role = roles.FirstOrDefault() ?? "indefinido";
+            
 
 
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, false);
@@ -77,7 +81,7 @@ namespace ServiceCustomer.Handlers
                     Subject = new ClaimsIdentity(new Claim[]
                     {
                         new Claim(ClaimTypes.Name, user.Email),
-                        new Claim(ClaimTypes.Role, "indefinido"),
+                        new Claim(ClaimTypes.Role, role),
                     }),
                     //Expires = DateTime.UtcNow.AddSeconds(30),
                     Expires = DateTime.UtcNow.AddSeconds(432000),

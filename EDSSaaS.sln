@@ -105,8 +105,6 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Desenhos", "01-Desenhos", "{4A848D30-870B-43AC-A6B6-401C7B1E55A4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-FrontEnd", "03-FrontEnd", "{99BB9658-E7D6-41B9-A12D-A413350D2D14}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,0 +1,51 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+@* <AuthorizeView>
+    <Authorized>
+        <p>Hello, @context.User.Identity.Name!</p>
+        <br/>
+        @if(@context.User.IsInRole("Admin"))
+        {
+            <p>You are an admin.</p>
+        }
+        else
+        {
+            <p>You are not an admin.</p>
+        }
+    </Authorized>
+    <NotAuthorized>
+        <p>You're not signed in.</p>
+    </NotAuthorized>
+</AuthorizeView> *@
+
+@code{
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationState { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authenticationState;
+        var user = authState.User;
+
+        if(user.Identity.IsAuthenticated)
+        {
+            Console.WriteLine("User is authenticated.");
+            if(user.IsInRole("Admin"))
+            {
+                Console.WriteLine("User is an admin.");
+            }
+            else
+            {
+                Console.WriteLine("User is not an admin.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("User is not authenticated.");
+        }
+    }
+}
+
+
