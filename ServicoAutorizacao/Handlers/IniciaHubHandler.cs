@@ -46,7 +46,7 @@ namespace ServicoAutorizacao.Handlers
 
                 IdentityResult result = await _userManager.CreateAsync(appUser, command.Password);
 
-                await _userManager.AddToRoleAsync(appUser, "indefinido");
+                await _userManager.AddToRoleAsync(appUser, "Admin");
 
                 var claimCriado = new Claim("emailtokenativo", codigoEmail);
                 result = await _userManager.AddClaimAsync(appUser, claimCriado);
@@ -58,7 +58,7 @@ namespace ServicoAutorizacao.Handlers
                           subject: "Número de confirmação de e-mail para atutenticação",
                           content: $"Digite este número: {codigoEmail} no login da Plataforma EDS Engineering Designs System");
 
-                _emailSender.SendEmail(mensagem);
+                //_emailSender.SendEmail(mensagem);
 
 
                 var hubAgregate = await HubAgregate.IniciarHub(command, _unitOfWork);
