@@ -13,7 +13,7 @@ using ValidacaoHelper.Notification;
 
 namespace APIGatewayEDS.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]/v1")]
     public class CustomerController : EDSController
