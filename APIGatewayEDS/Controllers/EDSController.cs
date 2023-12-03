@@ -79,6 +79,8 @@ namespace APIGatewayEDS.Controllers
 
         protected async Task<IActionResult> LinkarGet(string idOrganizacao)
         {
+            
+            //var uri = $"https://localhost:32775/apicontratos/api/Contrato/v1/{idOrganizacao}";
             var uri = $"http://apicontratos/api/Contrato/v1/{idOrganizacao}";
 
             var responseString = await _httpClient.GetStringAsync(uri);
